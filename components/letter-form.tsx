@@ -70,7 +70,7 @@ export default function LetterForm() {
   }
 
   return (
-    <div className="w-full max-w-md transform rotate-1 transition-all">
+    <div className="w-full max-w-md transition-all">
       <form onSubmit={handleSubmit} className="flex flex-col rounded-md bg-yellow-100 p-6 shadow-md dark:bg-yellow-900">
         <div className="mb-4">
           <input
