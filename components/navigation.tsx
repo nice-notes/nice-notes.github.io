@@ -3,12 +3,12 @@
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useMobile } from "@/hooks/use-mobile"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const isMobile = useMobile()
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     const handleScroll = () => {

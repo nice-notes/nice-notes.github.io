@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from "@/components/ui/dialog"
 import { X } from "lucide-react"
-import { useMobile } from "@/hooks/use-mobile"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 // Define the type for our letter data
 interface Letter {
@@ -36,7 +36,7 @@ export default function LetterDisplay() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [selectedLetter, setSelectedLetter] = useState<Letter | null>(null)
-  const isMobile = useMobile()
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     const fetchLetters = async () => {
