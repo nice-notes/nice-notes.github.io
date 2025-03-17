@@ -103,10 +103,6 @@ export default function LetterDisplay() {
         <DialogContent className={`${isMobile ? "w-[95%] max-w-[95%]" : "sm:max-w-md"} p-0 overflow-hidden`}>
           <DialogHeader className="p-4 border-b">
             <DialogTitle className="text-center">Nice Note</DialogTitle>
-            <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-              <X className="h-4 w-4" />
-              <span className="sr-only">Close</span>
-            </DialogClose>
           </DialogHeader>
           <div className="p-4 max-h-[70vh] overflow-y-auto">
             <p className="whitespace-pre-wrap text-lg">{selectedLetter?.message}</p>
