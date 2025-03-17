@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function AboutSection() {
   return (
     <section className="bg-white py-16 dark:bg-gray-900 min-h-screen flex items-center">
@@ -6,28 +8,27 @@ export default function AboutSection() {
 
         <div className="mx-auto max-w-3xl space-y-6 text-lg">
           <p>
-            Nice Notes was created with a simple mission: to spread kindness and positivity in a world that sometimes
-            feels overwhelming.
+            We made this website because we believe that kind words can help people who are going through tough times. 
+            On our website, anyone can write and share a letter of hope, comfort, or encouragement, and know that 
+            their words will make someone feel better.
           </p>
 
           <p>
-            We believe in the power of anonymous encouragement. When you write a note, you're sending positivity into
-            the world without expectation of recognition or reward—just pure kindness.
+            The website is a warm and welcoming place where anyone can share heartfelt letters of encouragement, 
+            positivity, and support. The process to submit a letter is simple and is done through a form, and your 
+            words will join a collection of other letters in our public gallery.
           </p>
 
           <p>
-            Similarly, when you read notes from others, you're receiving support from someone who expects nothing in
-            return. There's something beautiful about this exchange of goodwill between strangers.
-          </p>
-
-          <p>
-            Whether you're having a difficult day and need some encouragement, or you're feeling inspired and want to
-            lift others up, Nice Notes is here to facilitate that connection.
+            We will ensure that every letter is respectful and uplifting. There will be a process where letters are 
+            approved in order to ensure they are appropriate to be shared to the public. Once this is done the letters 
+            will be published and shared with others.
           </p>
 
           <p className="font-medium">
-            Remember: A few kind words can change someone's entire day. Your note might be exactly what someone needs to
-            hear right now.
+            Whether you're looking to spread some positivity or find comfort for yourself, we're glad you're here. 
+            Together, through collective kindness, we want to remind everyone that they're not alone, that their 
+            struggles matter, and that support is always just a message away.
           </p>
         </div>
       </div>

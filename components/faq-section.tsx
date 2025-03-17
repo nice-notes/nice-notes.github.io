@@ -9,51 +9,30 @@ export default function FaqSection() {
         <div className="mx-auto max-w-3xl">
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1">
-              <AccordionTrigger>Are the notes really anonymous?</AccordionTrigger>
+              <AccordionTrigger>What is the word limit for each letter?</AccordionTrigger>
               <AccordionContent>
-                Yes! We don't collect any personal information when you submit a note. Your identity remains completely
-                private.
+                We will be placing a limit of 1,000 words for the letter.
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="item-2">
-              <AccordionTrigger>How are notes moderated?</AccordionTrigger>
+              <AccordionTrigger>What kind of language can be used in the letters?</AccordionTrigger>
               <AccordionContent>
-                We have automated filters to catch inappropriate content, and our team reviews flagged notes to ensure
-                Nice Notes remains a positive space. We remove anything that doesn't align with our community
-                guidelines.
+                We encourage our writers to use appropriate language in their letters. There will be a process where letters have to be approved and any letter that does not meet this criteria will not be approved.
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="item-3">
-              <AccordionTrigger>Can I delete a note after posting it?</AccordionTrigger>
+              <AccordionTrigger>What should the letters talk about?</AccordionTrigger>
               <AccordionContent>
-                Since notes are anonymous, we don't have a way to verify which notes belong to which users. However, if
-                you need a note removed for any reason, please contact us with the specific content and approximate time
-                of posting.
+                The letters should share a message of hope, encouragement, and be uplifting. They are intended to make people feel better.
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="item-4">
-              <AccordionTrigger>How often are new notes added?</AccordionTrigger>
+              <AccordionTrigger>What is the review process?</AccordionTrigger>
               <AccordionContent>
-                New notes appear as soon as they're submitted and pass our moderation checks, which typically takes just
-                a few minutes. The community is active, so there's usually fresh content throughout the day.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-5">
-              <AccordionTrigger>Can I share notes on social media?</AccordionTrigger>
-              <AccordionContent>
-                Each note has a unique link that you can share. We encourage spreading positivity beyond our platform.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-6">
-              <AccordionTrigger>Is there a mobile app?</AccordionTrigger>
-              <AccordionContent>
-                Not yet, but our website is fully responsive and works great on mobile devices. We're considering
-                developing a dedicated app in the future based on community interest.
+                The letters will be reviewed by a group of individuals to ensure that they are able to be published and shared with others. If a letter is written in good faith and has a message that can help others it will be shared.
               </AccordionContent>
             </AccordionItem>
           </Accordion>

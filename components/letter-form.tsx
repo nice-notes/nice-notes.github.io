@@ -42,7 +42,7 @@ export default function LetterForm() {
       if (response.ok) {
         toast({
           title: "Letter submitted!",
-          description: "Your kind words have been added to Nice Notes.",
+          description: "Thanks! Your kind words will be visible after admin approval.",
           variant: "default",
           duration: 5000, // 5 seconds duration
         })
