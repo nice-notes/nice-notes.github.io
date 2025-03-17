@@ -112,11 +112,12 @@ const Carousel = React.forwardRef<
       }
 
       onSelect(api)
-      api.on("reInit", onSelect)
       api.on("select", onSelect)
+      api.on("reInit", onSelect)
 
       return () => {
-        api?.off("select", onSelect)
+        api.off("select", onSelect)
+        api.off("reInit", onSelect)
       }
     }, [api, onSelect])
 
@@ -194,60 +195,95 @@ const CarouselItem = React.forwardRef<
 })
 CarouselItem.displayName = "CarouselItem"
 
+type CarouselButtonProps = {
+  orientation?: "horizontal" | "vertical"
+  direction?: "next" | "prev"
+  variant?: "default" | "outline" | "secondary" | "ghost" | "link" | "destructive"
+  size?: "default" | "sm" | "lg" | null | undefined
+}
+
+const CarouselButton = React.forwardRef<HTMLButtonElement, CarouselButtonProps & React.ComponentProps<typeof Button>>(
+  ({ orientation = "horizontal", direction = "next", variant, size, className, ...props }, ref) => {
+    return (
+      <Button
+        ref={ref}
+        variant={variant}
+        size={size}
+        className={cn(
+          "absolute h-8 w-8 rounded-full",
+          orientation === "horizontal"
+            ? "top-1/2 -translate-y-1/2"
+            : "left-1/2 -translate-x-1/2",
+          direction === "next"
+            ? orientation === "horizontal"
+              ? "right-1"
+              : "bottom-1"
+            : orientation === "horizontal"
+            ? "left-1"
+            : "top-1",
+          className
+        )}
+        {...props}
+      />
+    )
+  }
+)
+CarouselButton.displayName = "CarouselButton"
+
 const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
-  React.ComponentProps<typeof Button>
->(({ className, variant = "outline", size = "icon", ...props }, ref) => {
+  React.ComponentProps<typeof CarouselButton>
+>(({ className, ...props }, ref) => {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
 
   return (
-    <Button
+    <CarouselButton
       ref={ref}
-      variant={variant}
-      size={size}
-      className={cn(
-        "absolute  h-8 w-8 rounded-full",
-        orientation === "horizontal"
-          ? "-left-12 top-1/2 -translate-y-1/2"
-          : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
-        className
-      )}
-      disabled={!canScrollPrev}
+      direction="prev"
+      variant="outline"
+      size="sm"
+      orientation={orientation}
       onClick={scrollPrev}
+      disabled={!canScrollPrev}
+      className={cn("", className)}
       {...props}
     >
-      <ArrowLeft className="h-4 w-4" />
+      {orientation === "horizontal" ? (
+        <ArrowLeft className="h-4 w-4" />
+      ) : (
+        <ArrowLeft className="h-4 w-4 rotate-90" />
+      )}
       <span className="sr-only">Previous slide</span>
-    </Button>
+    </CarouselButton>
   )
 })
 CarouselPrevious.displayName = "CarouselPrevious"
 
 const CarouselNext = React.forwardRef<
   HTMLButtonElement,
-  React.ComponentProps<typeof Button>
->(({ className, variant = "outline", size = "icon", ...props }, ref) => {
+  React.ComponentProps<typeof CarouselButton>
+>(({ className, ...props }, ref) => {
   const { orientation, scrollNext, canScrollNext } = useCarousel()
 
   return (
-    <Button
+    <CarouselButton
       ref={ref}
-      variant={variant}
-      size={size}
-      className={cn(
-        "absolute h-8 w-8 rounded-full",
-        orientation === "horizontal"
-          ? "-right-12 top-1/2 -translate-y-1/2"
-          : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
-        className
-      )}
-      disabled={!canScrollNext}
+      direction="next"
+      variant="outline"
+      size="sm"
+      orientation={orientation}
       onClick={scrollNext}
+      disabled={!canScrollNext}
+      className={cn("", className)}
       {...props}
     >
-      <ArrowRight className="h-4 w-4" />
+      {orientation === "horizontal" ? (
+        <ArrowRight className="h-4 w-4" />
+      ) : (
+        <ArrowRight className="h-4 w-4 rotate-90" />
+      )}
       <span className="sr-only">Next slide</span>
-    </Button>
+    </CarouselButton>
   )
 })
 CarouselNext.displayName = "CarouselNext"
