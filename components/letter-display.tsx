@@ -15,7 +15,8 @@ interface Letter {
 
 // Random rotation for sticky notes
 const getRandomRotation = () => {
-  return Math.floor(Math.random() * 11) - 5 // Between -5 and 5 degrees
+  // return Math.floor(Math.random() * 11) - 5 // Between -5 and 5 degrees
+  return 0
 }
 
 // Random pastel colors for sticky notes
