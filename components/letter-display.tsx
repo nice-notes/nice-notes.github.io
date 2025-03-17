@@ -32,7 +32,7 @@ const getRandomColor = () => {
   return stickyColors[Math.floor(Math.random() * stickyColors.length)]
 }
 
-export default function LetterDisplay() {
+export default function LetterDisplay({ limit }: { limit?: number }) {
   const [letters, setLetters] = useState<Letter[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -62,6 +62,9 @@ export default function LetterDisplay() {
     fetchLetters()
   }, [])
 
+  // Apply limit to letters if provided
+  const displayedLetters = limit ? letters.slice(0, limit) : letters
+
   if (loading) {
     return <div className="text-center py-10">Loading nice notes...</div>
   }
@@ -73,10 +76,10 @@ export default function LetterDisplay() {
   return (
     <>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {letters.length === 0 ? (
+        {displayedLetters.length === 0 ? (
           <div className="col-span-full text-center py-10">No notes found. Be the first to write one!</div>
         ) : (
-          letters.map((letter) => {
+          displayedLetters.map((letter) => {
             const rotation = getRandomRotation()
             const color = getRandomColor()
 

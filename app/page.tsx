@@ -4,6 +4,13 @@ import AboutSection from "@/components/about-section"
 import FaqSection from "@/components/faq-section"
 import ScrollToTopButton from "@/components/scroll-to-top-button"
 import Navigation from "@/components/navigation"
+import RecentNotes from "@/components/recent-notes"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Nice Notes",
+  description: "Share and read kind messages from people around the world",
+}
 
 export default function Home() {
   return (
@@ -30,7 +37,7 @@ export default function Home() {
       <section id="notes" className="bg-background py-16">
         <div className="container mx-auto px-4">
           <h2 className="mb-8 text-center text-3xl font-bold">Recent Notes</h2>
-          <LetterDisplay />
+          <RecentNotes />
         </div>
       </section>
 
