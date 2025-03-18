@@ -50,7 +50,9 @@ export default function LetterDisplay({ limit }: { limit?: number }) {
         }
         
         const data = await response.json()
-        setLetters(data)
+        // Sort by time in descending order (newest first)
+        const sortedData = [...data].sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime())
+        setLetters(sortedData)
       } catch (err) {
         console.error('Error fetching letters:', err)
         setError(err instanceof Error ? err.message : 'Failed to fetch letters')
