@@ -16,11 +16,21 @@ export default function LetterForm() {
     e.preventDefault()
 
     const trimmedLetter = letter.trim()
+    const wordCount = trimmedLetter.split(/\s+/).filter(word => word.length > 0).length
 
     if (trimmedLetter.length < 10) {
       toast({
         title: "Letter too short",
         description: "Please write at least 10 characters.",
+        variant: "destructive",
+      })
+      return
+    }
+
+    if (wordCount > 1000) {
+      toast({
+        title: "Letter too long",
+        description: "Please keep your message under 1000 words.",
         variant: "destructive",
       })
       return
@@ -35,7 +45,7 @@ export default function LetterForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: name.trim() || 'Anonymous',
-          message: trimmedLetter.slice(0, 1000)
+          message: trimmedLetter
         }),
       })
 
@@ -87,9 +97,10 @@ export default function LetterForm() {
           className="mb-4 min-h-[150px] border-none bg-yellow-50 text-lg shadow-inner dark:bg-yellow-800/50 dark:text-yellow-50"
           value={letter}
           onChange={(e) => setLetter(e.target.value)}
-          maxLength={1000}
         />
-        <div className="mb-4 text-right text-sm text-muted-foreground">{letter.length}/1000 characters</div>
+        <div className="mb-4 text-right text-sm text-muted-foreground">
+          {letter.trim().split(/\s+/).filter(word => word.length > 0).length}/1000 words
+        </div>
         <Button
           type="submit"
           className="bg-yellow-500 text-yellow-950 hover:bg-yellow-600 dark:bg-yellow-600 dark:text-yellow-50 dark:hover:bg-yellow-500"
