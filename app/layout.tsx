@@ -9,7 +9,10 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Nice Notes",
-  description: "Share anonymous words of kindness and read supportive messages from others.",
+  description: "Share anonymous supportive messages",
+  icons: {
+    icon: "/favicon.png",
+  }
 }
 
 export default function RootLayout({
@@ -19,6 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.png" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
           {children}
